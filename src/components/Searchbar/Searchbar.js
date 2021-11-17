@@ -8,9 +8,6 @@ export default function Searchbar({ onSubmit }) {
 
   const handleChange = e => {
     setSearchName(e.currentTarget.value.toLowerCase());
-    // this.setState({
-    //   searchName: e.currentTarget.value.toLowerCase(),
-    // });
   };
 
   const handleSubmit = e => {
