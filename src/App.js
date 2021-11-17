@@ -25,11 +25,9 @@ export default function App() {
     if (searchName === '') {
       return;
     }
-
     setStatus('pending');
     searchApi
       .fetchImage(searchName, searchPage)
-
       .then(data => {
         setSearchInfo(prevState => [...prevState, ...data.hits]);
         setStatus('resolved');
@@ -98,13 +96,18 @@ export default function App() {
       )}
       {/* {status === 'rejected' && <h1>{error.message}</h1>} */}
       {status === 'rejected' && <h1>{error}</h1>}
+      <ImageGallery
+        images={searchInfo}
+        // onClick={this.onOpenModal}
+        // onImgClick={this.onImgClick}
+      />
       {status === 'resolved' && searchInfo.length > 0 && (
         <>
-          <ImageGallery
+          {/* <ImageGallery
             images={searchInfo}
             // onClick={this.onOpenModal}
             // onImgClick={this.onImgClick}
-          />
+          /> */}
           <Button onClick={handleClick} />
         </>
       )}
